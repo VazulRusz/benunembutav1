@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BENU NEM BUTA</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+
+<div class="container">
+    <div class="centered">
+        <h2>Feladat: Alakzatok</h2>
+        <button id="readyButton" class="readyButton">Értem</button>
+    </div>
+</div>
+
+<audio id="backgroundAudio" loop autoplay>
+    <source src="background.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<audio id="bemutatoAudio">
+    <source src="bemutato.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+<audio id="correctAnswerAudio">
+    <source src="helyes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+<audio id="wrongAnswerAudio1">
+    <source src="helytelen1.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+<audio id="wrongAnswerAudio2">
+    <source src="helytelen2.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+<audio id="wrongAnswerAudio3">
+    <source src="helytelen3.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+<audio id="wrongAnswerAudio4">
+    <source src="helytelen4.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    document.getElementById('readyButton').addEventListener('click', function() {
+        var audio = document.getElementById("backgroundAudio");
+        audio.volume = 0.007; // Hangerő beállítása (0-1)
+        audio.play(); // Háttérzene lejátszása
+
+        var bemutatoAudio = document.getElementById("bemutatoAudio");
+        bemutatoAudio.play(); // Bemutató hangjának lejátszása
+
+        // Gomb és szöveg elrejtése
+        var button = document.getElementById('readyButton');
+        button.style.display = 'none';
+        var taskText = document.querySelector('h2');
+        taskText.style.display = 'none';
+
+        // Paralelogramma megjelenítése
+        var parallelogramma = document.createElement('img');
+        parallelogramma.src = 'Paralelogramma.png'; // A paralelogramma kép elérési útvonala
+        document.body.appendChild(parallelogramma);
+
+        // Helyes és helytelen válasz gombok megjelenítése
+        var correctAnswer = 'Paralelogramma';
+        var answers = [
+            { text: 'Paralelogramma', audio: 'correctAnswerAudio' },
+            { text: 'Fourdium', audio: 'wrongAnswerAudio1' },
+            { text: 'Négyszög', audio: 'wrongAnswerAudio2' },
+            { text: 'Háromszög', audio: 'wrongAnswerAudio3' },
+            { text: 'Rombusz', audio: 'wrongAnswerAudio4' }
+        ];
+
+        answers = shuffleArray(answers); // Válaszok véletlenszerű sorrendbe rendezése
+
+        answers.forEach(function(answer) {
+            var button = document.createElement('button');
+            button.textContent = answer.text;
+            document.body.appendChild(button);
+            button.addEventListener('click', function() {
+                if (answer.text === correctAnswer) {
+                    var correctAnswerAudio = document.getElementById(answer.audio);
+                    correctAnswerAudio.play(); // Helyes válasz hangjának lejátszása
+                    setTimeout(function() {
+                        window.location.href = 'third/index3.html'; // Átdobás a következő oldalra 1 másodperc után
+                    }, 2350);
+                } else {
+                    var wrongAnswerAudio = document.getElementById(answer.audio);
+                    wrongAnswerAudio.play(); // Hibás válasz hangjának lejátszása
+                }
+            });
+        });
+    });
+
+    function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BENU NEM BUTA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <div class="centered">
+            <h1>Készen állsz?</h1>
+            <button id="readyButton" class="readyButton">Készen állok!</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('readyButton').addEventListener('click', function() {
+            // Hangfájl betöltése és lejátszása
+            var audio = new Audio('benuhang.mp3');
+            audio.play();
+    
+            // Kép megjelenítése és animáció
+            var tickMark = document.createElement('img');
+            tickMark.src = 'benupipa.png'; // A pipa kép elérési útvonala
+            tickMark.classList.add('tickMark');
+            document.body.appendChild(tickMark);
+    
+            setTimeout(function() {
+                window.location.href = 'second/index2.html'; // Átdobás az új oldalra
+            }, 1000); // 1 másodperc várakozás
+        });
+    </script>
+    
+    
+</body>
+</html>

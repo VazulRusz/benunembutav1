@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BENU NEM BUTA</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+
+<div class="container">
+    <div class="centered">
+        <h2>Okosnak tartod magad?</h2>
+        <button id="yesButton" class="readyButton">Igen</button>
+        <button id="noButton" class="readyButton">Nem</button>
+    </div>
+</div>
+
+
+
+<audio id="igenAudio">
+    <source src="igen.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+<audio id="nemAudio">
+    <source src="nem.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+      document.getElementById('yesButton').addEventListener('click', function() {
+        var audio = new Audio('igen.wav');
+        audio.play();
+        setTimeout(function() {
+            window.close(); // Az ablak bezárása 1 másodperc után
+        }, 1000);
+    });
+
+    document.getElementById('noButton').addEventListener('click', function() {
+        var nemAudio = document.getElementById("nemAudio");
+        nemAudio.play(); // Nem hangjának lejátszása
+        setTimeout(function() {
+            window.close(); // Oldal bezárása 2 másodperc után
+        }, 2000);
+    });
+</script>
+
+</body>
+</html>

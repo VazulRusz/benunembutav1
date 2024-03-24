@@ -1,0 +1,54 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.966)), url('background-image.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* A dokumentum teljes magasságához igazítás */
+    display: flex;
+    justify-content: center; /* A tartalom vízszintesen középre igazítása */
+    align-items: center; /* A tartalom függőlegesen középre igazítása */
+}
+
+.centered {
+    text-align: center;
+}
+
+h2 {
+    font-size: 3em; /* Nagy betűméret */
+    color: #ffffff; /* Fehér szövegszín */   
+    font-family: 'Roboto', sans-serif; /* A letöltött betűtípus */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Körvonal beállítása */
+}
+
+.readyButton {
+    background-color: #ffffff; /* Fehér gomb */
+    color: black;
+    font-size: 1.5em; /* Nagy betűméret */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Sima átmenet a színváltozáshoz */
+}
+
+.readyButton:hover {
+    background-color: #006400; /* Sötétebb zöld gomb hover állapotban */
+}
+
+.answerButton {
+    background-color: #ffffff; /* Fehér gomb */
+    color: black;
+    font-size: 1.5em; /* Nagy betűméret */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease; /* Sima átmenet a színváltozáshoz */
+}
+
+.answerButton:hover {
+    background-color: #006400; /* Sötétebb zöld gomb hover állapotban */
+}

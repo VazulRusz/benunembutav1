@@ -1,0 +1,64 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.966)), url('background-image.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* A dokumentum teljes magasságához igazítás */
+    display: flex;
+    justify-content: center; /* A tartalom vízszintesen középre igazítása */
+    align-items: center; /* A tartalom függőlegesen középre igazítása */
+}
+
+.centered {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em; /* Nagy betűméret */
+    color: #ffffff; /* Zöld szövegszín */   
+    font-family: 'Roboto', sans-serif; /* A letöltött betűtípus */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Körvonal beállítása */
+}
+
+.readyButton {
+    background-color: #ffffff; /* Zöld gomb */
+    color: white;
+    font-size: 1.5em; /* Nagy betűméret */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Sima átmenet a színváltozáshoz */
+}
+
+.readyButton:hover {
+    background-color: #006400; /* Sötétebb zöld gomb hover állapotban */
+}
+
+.tickMark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg); /* kezdetben elforgatva 0 fokkal */
+    color: green;
+    font-size: 5em;
+    opacity: 0;
+    animation: growAndRotate 0.5s ease forwards; /* Mindkét animáció egyidejű alkalmazása */
+}
+
+@keyframes growAndRotate {
+    0% {
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5) rotate(180deg); /* Elforgatás 180 fokra */
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(360deg); /* Elforgatás 360 fokra */
+        opacity: 0;
+    }
+}
